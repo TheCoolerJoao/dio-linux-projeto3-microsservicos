@@ -28,14 +28,15 @@ if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());
     exit();
 }
-
+   
 $valor_rand1 =  rand(1, 999);
 $valor_rand2 = strtoupper(substr(bin2hex(random_bytes(4)), 1));
 $host_name = gethostname();
-
+#três variáveis destinadas a criação de valores randômicos.
+    
 
 $query = "INSERT INTO dados (AlunoID, Nome, Sobrenome, Endereco, Cidade, Host) VALUES ('$valor_rand1' , '$valor_rand2', '$valor_rand2', '$valor_rand2', '$valor_rand2','$host_name')";
-
+#inserção no banco dos valores gerados randomicamente.
 
 if ($link->query($query) === TRUE) {
   echo "New record created successfully";
